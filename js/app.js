@@ -3,12 +3,16 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const('method-override');
+const methodOverride = require('method-override');
+app.listen(port, () => console.log(`Demo listening on port ${port}`));
+
+
+// app
+const fruits = ['bananna', 'apple', 'blueberrie', 'schnozberry']
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res) =>res.send('Buenos tardes!'));
 
-app.listen(port, () => console.log(`Demo listening on port ${port}`));
 
 app.get('/fruits/:indexOfFruitsArray/edit', function(req, res){
 	res.render(
